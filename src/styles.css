@@ -1,1 +1,143 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+
+    /* Primary Colors */
+    -main-primary-brightBlue: hsl(220, 98%, 61%);
+    --background: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+    /* Light Thene */
+    --main-light-gray:  hsl(0, 0%, 98%);
+    --main-light-blueGray-1:  hsl(236, 33%, 92%);
+    --main-light-blueGray-2:   hsl(233, 11%, 84%);
+    --main-light-blueGray-3: hsl(236, 9%, 61%);
+    --main-light-blueGray-4: hsl(235, 19%, 35%);
+    /* Dark Thene */
+    --main-dark-darkBlue:hsl(235, 21%, 11%);
+    --main-dark-veryDarkBlue: hsl(235, 24%, 19%);
+    --main-dark-lightGrayBlue: hsl(234, 39%, 85%);
+    --main-dark-darkGreyBlue1: hsl(236, 33%, 92%);
+    --main-dark-darkGreyBlue2: hsl(234, 11%, 52%);
+    --main-dark-darkGreyBlue3: hsl(233, 14%, 35%);
+    --main-dark-darkGreyBlue4: hsl(237, 14%, 26%);
+    --font-size: 18px;
+  }
+
+  *{
+    padding:  0;
+    margin: 0;
+    box-sizing: border-box;
+  
+    font-family: "Poppins", sans-serif
+  }
+
+.light-background{
+  background-image: url('./images/bg-desktop-light.jpg');
+  background-image: 100%;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:  300px 100px;
+  background-color:var(--main-light-gray);
+}
+.dark-background{
+  background-image: url('./images/bg-desktop-dark.jpg');
+  background-image: 100%;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size:  100% 20%;
+  background-color:var(--main-dark-darkBlue);
+}
+.app-container{
+
+  padding: 2em 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+  color:white;
+}
+.footer-section{
+  padding: 1em 0;
+  font-size: 12px;
+  text-align: center;
+}
+.todo-container{
+
+  height: 700px;
+ /* border:3px solid white;  */
+ margin: 2em;
+ 
+
+}
+.header{
+  border:3px solid white;
+  padding: 1em .75em;
+  display: flex;
+  justify-content: space-between;
+}
+.header-text{
+  font-size: 12px;
+  color: var(--main-light-gray);
+  font-weight: 500;
+  letter-spacing: 8px;
+
+}
+
+.icon-theme{
+  font-size:10px; 
+
+}
+
+/* new Task */ 
+.task-new-container{
+  /* border: 1px solid white; */
+  display: flex;
+  background-color: hsl(235, 24%, 19%);
+  align-items: center;
+  border-radius: 2px;
+  height: 40px;
+  width: 320px;
+  padding: 1em;
+  margin: 1em 0 ;
+}
+.icon-container{
+  color:transparent;
+  /* border: 1px solid black; */
+
+}
+
+.svg{
+  display: block;
+  height:18px;
+  width: 20px;
+  /* border:2px solid blue; */
+}
+
+
+input{
+  font-size: 12px;
+  outline: none;
+  background: transparent;
+  border: none;
+  /* border:2px solid blue; */
+  display: block;
+}
+
+input::placeholder {
+  font-size: 8px;
+  font-weight: 200;
+  opacity: 0.5;
+  color: var(--main-dark-darkGreyBlue1);
+}
+
+.task-container{
+
+  border-radius: 2px;
+  background-color: hsl(235, 24%, 19%);
+}
+.task{
+  border-bottom: 1px solid var(--main-dark-darkGreyBlue1);
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+}
