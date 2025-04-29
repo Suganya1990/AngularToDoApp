@@ -5,7 +5,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   standalone: true,
   imports: [FontAwesomeModule],
   templateUrl: './task.component.html',
-  styleUrl: './task.component.css'
+
 })
 export class TaskComponent {
 

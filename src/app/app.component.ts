@@ -7,7 +7,7 @@ import { ToDoComponent } from './to-do/to-do.component';
   standalone: true,
   imports: [RouterOutlet, ToDoComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+
 })
 export class AppComponent {
   title = 'todo-app';

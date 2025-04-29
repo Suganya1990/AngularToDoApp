@@ -6,7 +6,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   standalone: true,
   imports: [FontAwesomeModule],
   templateUrl: './new-task.component.html',
-  styleUrl: './new-task.component.css'
+
 })
 export class NewTaskComponent {
   // faCircle = faCircle
