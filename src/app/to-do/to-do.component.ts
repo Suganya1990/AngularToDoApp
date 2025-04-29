@@ -7,7 +7,7 @@ import { TaskComponent } from '../task/task.component';
   standalone: true,
   imports: [NewTaskComponent,TaskComponent, TaskComponent],
   templateUrl: './to-do.component.html',
-  styleUrl: './to-do.component.css'
+
 })
 export class ToDoComponent {
 
