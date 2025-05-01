@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { afterNextRender, Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ToDoComponent } from './to-do/to-do.component';
 
@@ -11,4 +11,15 @@ import { ToDoComponent } from './to-do/to-do.component';
 })
 export class AppComponent {
   title = 'todo-app';
+  constructor(){
+    afterNextRender(()=>{
+      this.showWelcomeMessage();
+    })
+   
+  }
+
+  showWelcomeMessage() {
+    alert("Thank you for visiting! This app is currently in development.");
+  }
+  
 }
