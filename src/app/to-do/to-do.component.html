@@ -1,18 +1,27 @@
-<section class="todo-container">
-    <header class="header">
+<section  [ngClass]="this.theme.type==='Light' ? 'light-container': 'dark-container'" class="container-todo" >
+    <header class="container-header">
         <h1 class="header-text">TODO</h1>
-        <span class="icon-theme">&#9728;</span>
+
+        <i class="icon-theme" (click) = "this.toggleTheme()">	
+            {{this.theme.symbol}}</i>
+        
+        <!-- <span class="icon-theme"></span> -->
     </header>
-    <new-task/>
 
-
-    <section  class="task-container task-list-container">
-        <task/>
-        <task/>
+    <section class="container-main"  >
+        <section class="container-addTask" [ngClass]="this.theme.type==='Light' ? 'light': 'dark'">
+            <new-task/>
+        </section>
+         
+        <section  class="container-taskList" [ngClass]="this.theme.type==='Light' ? 'light': 'dark'">
+            <task/>
+            <task/>
+        </section>   
+        <section class="container container-filter" [ngClass]="this.theme.type==='Light' ? 'light': 'dark'">
+            Filters Section
+        </section>
     </section>
-
-    
-    <section>
-        Filters Section
-    </section>
+    <div>
+        <p> Drag and drop to recorder list</p>
+    </div>
 </section>
