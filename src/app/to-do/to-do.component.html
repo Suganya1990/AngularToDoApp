@@ -7,16 +7,24 @@
         
         <!-- <span class="icon-theme"></span> -->
     </header>
+    <section class="container-addTask" [ngClass]="this.theme.type==='Light' ? 'light': 'dark'">
+        <new-task/>
+    </section>
 
+        <section class="container-addTask example-container " [ngClass]="this.theme.type==='Light' ? 'light': 'dark'">
+            <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
 
-        <section class="container-addTask" [ngClass]="this.theme.type==='Light' ? 'light': 'dark'">
-            <new-task/>
+                @for (item of items; track item.id){
+
+                    <task  [task]="item" cdkDrag/>
+                }
+                </div>
         </section>
          
-        <section  class="container-taskList" [ngClass]="this.theme.type==='Light' ? 'light': 'dark'">
+        <!-- <section  class="container-taskList" [ngClass]="this.theme.type==='Light' ? 'light': 'dark'">
             <task/>
             <task/>
-        </section>   
+        </section>    -->
         <section class=" container-filter" [ngClass]="this.theme.type==='Light' ? 'light': 'dark'">
             Add Filter Section
         </section>
