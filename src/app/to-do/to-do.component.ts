@@ -24,51 +24,53 @@ export class ToDoComponent {
     },
     {
       id:"2",
-      title:"Make doctors appointment ",
+      title:"Finish Angular Project ",
       description: new Date(),
       isComplete:false
       
     },
     {
       id:"3",
-      title:"Make doctors appointment ",
+      title:"Get a job",
       description: new Date(),
       isComplete:false
       
     },
     {
       id:"4",
-      title:"Make doctors appointment ",
+      title:"Train for 5K",
       description: new Date(),
       isComplete:false
       
     },
     {
       id:"5",
-      title:"Make doctors appointment ",
+      title:"Go swimming",
       description: new Date(),
       isComplete:false
       
     }
   ]
-  theme: typeof Light |  typeof Dark
+  theme!: typeof Light |  typeof Dark
 
   setInitialTheme(){
     let date = new Date();
     let time = date.getHours();
-   
-    (time > 7 && time < 21 ) ? this.theme = Light : this.theme = Dark
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      this.theme = Dark
-  }
+    if (typeof window !== "undefined") {
+       if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+         this.theme = Dark}
+         else
+         this.theme=Light
+    }
+    else{
+      (time > 7 && time < 21 ) ? this.theme = Light : this.theme = Dark
+    }
   }
 
-  constructor(){
-    this.theme = Light
-  }
+  constructor(){    this.setInitialTheme()}
 
   ngOnInit(){
-    this.setInitialTheme()
+
   }
 
   toggleTheme(){
