@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import {CdkDrag, CdkDragDrop, CdkDropList, moveItemInArray} from '@angular/cdk/drag-drop';
 import { TaskModule } from '../task/task.module';
 import {Light, Dark} from '../theme/theme.module'
+import { TasksService } from '../task/tasks.service';
 
 @Component({
   selector: 'app-to-do',
@@ -14,51 +15,15 @@ import {Light, Dark} from '../theme/theme.module'
 
 })
 export class ToDoComponent {
-  tasks: TaskModule[] = [
-    {
-      id:"1",
-      title:"Make doctors appointment ",
-      description: new Date(),
-      isComplete:false
-      
-    },
-    {
-      id:"2",
-      title:"Finish Angular Project ",
-      description: new Date(),
-      isComplete:false
-      
-    },
-    {
-      id:"3",
-      title:"Get a job",
-      description: new Date(),
-      isComplete:false
-      
-    },
-    {
-      id:"4",
-      title:"Train for 5K",
-      description: new Date(),
-      isComplete:false
-      
-    },
-    {
-      id:"5",
-      title:"Go swimming",
-      description: new Date(),
-      isComplete:false
-      
-    }
-  ]
+  
   theme!: typeof Light |  typeof Dark
-
+  tasks: TaskModule[] = []
   setInitialTheme(){
     let date = new Date();
     let time = date.getHours();
     if (typeof window !== "undefined") {
-       if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-         this.theme = Dark}
+       if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) 
+         this.theme = Dark
          else
          this.theme=Light
     }
@@ -67,10 +32,16 @@ export class ToDoComponent {
     }
   }
 
-  constructor(){    this.setInitialTheme()}
+  constructor(private taskService: TasksService){    
+    this.setInitialTheme()
+  }
 
   ngOnInit(){
-
+    this.getTasks()
+    
+  }
+  getTasks(){
+   this.taskService.getTasks().subscribe(task=>this.tasks = task)
   }
 
   toggleTheme(){
