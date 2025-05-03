@@ -14,9 +14,11 @@
         <section class="container-addTask example-container " [ngClass]="this.theme.type==='Light' ? 'light': 'dark'">
             <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
 
-                @for (item of items; track item.id){
+                @for (item of tasks; track item.id){
+                    <div class="example-item">
 
-                    <task  [task]="item" cdkDrag/>
+                        <task  [task]="item" cdkDrag/>
+                    </div>
                 }
                 </div>
         </section>

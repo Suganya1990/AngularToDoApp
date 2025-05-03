@@ -3,7 +3,8 @@ import { NewTaskComponent } from '../task/new-task/new-task.component';
 import { TaskComponent } from '../task/task.component';
 import { CommonModule } from '@angular/common';
 import {CdkDrag, CdkDragDrop, CdkDropList, moveItemInArray} from '@angular/cdk/drag-drop';
-
+import { TaskModule } from '../task/task.module';
+import {Light, Dark} from '../theme/theme.module'
 
 @Component({
   selector: 'app-to-do',
@@ -13,35 +14,72 @@ import {CdkDrag, CdkDragDrop, CdkDropList, moveItemInArray} from '@angular/cdk/d
 
 })
 export class ToDoComponent {
-  items = [{id:568, name:"Go to Bed"}, 
-    {id:115, name:"Task 2"},
-    {id:2447, name:"Task : Cook Something"}
+  tasks: TaskModule[] = [
+    {
+      id:"1",
+      title:"Make doctors appointment ",
+      description: new Date(),
+      isComplete:false
+      
+    },
+    {
+      id:"2",
+      title:"Make doctors appointment ",
+      description: new Date(),
+      isComplete:false
+      
+    },
+    {
+      id:"3",
+      title:"Make doctors appointment ",
+      description: new Date(),
+      isComplete:false
+      
+    },
+    {
+      id:"4",
+      title:"Make doctors appointment ",
+      description: new Date(),
+      isComplete:false
+      
+    },
+    {
+      id:"5",
+      title:"Make doctors appointment ",
+      description: new Date(),
+      isComplete:false
+      
+    }
   ]
-  theme 
-  light = {
-    type: "Light",
-    symbol: "\u263E"
+  theme: typeof Light |  typeof Dark
+
+  setInitialTheme(){
+    let date = new Date();
+    let time = date.getHours();
+   
+    (time > 7 && time < 21 ) ? this.theme = Light : this.theme = Dark
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      this.theme = Dark
   }
-  Dark = {
-    type: "Dark",
-    symbol: "\u263C"
   }
+
   constructor(){
-    this.theme = this.Dark;
+    this.theme = Light
   }
 
-  setTheme(){
-
+  ngOnInit(){
+    this.setInitialTheme()
   }
+
   toggleTheme(){
     if(this.theme.type === "Light" )
-      this.theme = this.Dark;
+      this.theme = Dark;
     else if (this.theme.type === "Dark")
-      this.theme=this.light;
-    
+      this.theme=Light;
   }
+
   drop(event: CdkDragDrop<string[]>) {
-    moveItemInArray(this.items, event.previousIndex, event.currentIndex);
+    moveItemInArray(this.tasks, event.previousIndex, event.currentIndex);
   }
 
 }
