@@ -7,7 +7,7 @@
         
         <!-- <span class="icon-theme"></span> -->
     </header>
-    <section class="container-addTask" [ngClass]="this.theme.type==='Light' ? 'light': 'dark'">
+    <section class="container-addTask" [ngClass]="this.theme.type==='Light' ? 'light light-input': 'dark dark-input'">
         <new-task/>
     </section>
 
@@ -15,7 +15,7 @@
             <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
 
                 @for (task of tasks; track task.id){
-                    <div class="example-item" cdkDrag>
+                    <div class="example-item" [ngClass]="this.theme.type==='Light' ? 'light': 'dark'" cdkDrag >
                         <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
                         <task  [task]="task" />
                     </div>
