@@ -15,9 +15,9 @@
             <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
 
                 @for (task of tasks; track task.id){
-                    <div class="example-item">
-
-                        <task  [task]="task" cdkDrag/>
+                    <div class="example-item" cdkDrag>
+                        <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+                        <task  [task]="task" />
                     </div>
                 }
                 </div>
