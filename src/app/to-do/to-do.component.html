@@ -38,7 +38,7 @@
            <button (click)="showTasks('Completed')"   [ngClass]="this.theme.type==='Light' ?'light button-light': 'dark button-dark'"class="button-completed">Completed</button>
         </section>
 
-    <div>
+    <div class="container-footer" (click)="showTasks('Active')"  [ngClass]="this.theme.type==='Light' ?  'light-input': 'dark-input'" >
         <p> Drag and drop to recorder list</p>
     </div>
 </section>
