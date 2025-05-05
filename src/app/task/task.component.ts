@@ -24,7 +24,8 @@ export class TaskComponent implements OnInit {
   
   }
   onDelete(e:string){
-    console.log("delete event triggered")
+    
+    console.log("delete event triggered", e)
     this.deleteTaskEvent.emit(e)
 
   }

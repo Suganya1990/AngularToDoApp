@@ -58,7 +58,21 @@ updateStatus(id:string){
   
   deleteTask(id:string){
     const taskIndex = this.tasks.findIndex((t) => t.id == id);    
-    this.tasks.splice(taskIndex, 1);
+     this.tasks.splice(taskIndex, 1);
   }
 
+filterTasks(status:string){
+  let tempArray:any;
+  if(status==="Completed"){
+   tempArray =   this.tasks.filter(t=>t.isComplete===true)
+  }
+  if(status==='Active'){
+  tempArray  =  this.tasks.filter(t=>t.isComplete===false)
+  }
+  if(status==='All'){
+   tempArray =  this.tasks
+   }
+   return tempArray
 }
+}
+

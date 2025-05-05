@@ -21,6 +21,7 @@ export class ToDoComponent {
 
   constructor(private taskService: TasksService){    
     this.setInitialTheme()
+  
   }
 
   ngOnInit(){
@@ -63,9 +64,8 @@ export class ToDoComponent {
   deleteTask(e:any){
     this.taskService.deleteTask(e)
   }
-  clearCompletedTasks(){
-  this.tasks =  this.tasks.filter((t)=>
-    t.isComplete ==false
-  )
+
+  showTasks(status:string){
+    this.tasks= this.taskService.filterTasks(status)
   }
 }
