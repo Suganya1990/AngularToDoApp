@@ -310,9 +310,15 @@ opacity: .2;
   padding: 1em 1.5em;
  }
  
- .button-clear{
+ .button-clear, .button-all, .button-active, .button-completed{
   background-color: transparent;
   border: none;
   cursor: pointer;
   
  }
+
+ .container-filter{
+  padding: 1em;
+  display: flex;
+  justify-content: space-evenly;
+}
