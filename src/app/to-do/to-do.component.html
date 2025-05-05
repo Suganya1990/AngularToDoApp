@@ -1,44 +1,108 @@
-<section  [ngClass]="this.theme.type==='Light' ? 'light-container': 'dark-container'" class="container-todo" >
+<div
+  [ngClass]="this.theme.type === 'Light' ? 'light-container' : 'dark-container'"
+  class="container-todo"
+>
+  <section class="container-main">
     <header class="container-header">
-        <h1 class="header-text">TODO</h1>
+      <h1 class="header-text">TODO</h1>
 
-        <i class="icon-theme" (click) = "this.toggleTheme()">	
-            {{this.theme.symbolLink}}
-        </i>
-        
-        <!-- <span class="icon-theme"></span> -->
+      <i class="icon-theme" (click)="this.toggleTheme()">
+        {{ this.theme.symbolLink }}
+      </i>
+
+      <!-- <span class="icon-theme"></span> -->
     </header>
-    <section class="container-addTask" [ngClass]="this.theme.type==='Light' ? 'light light-input': 'dark dark-input'">
-        <new-task/>
+    <section
+      class="container-addTask"
+      [ngClass]="
+        this.theme.type === 'Light' ? 'light light-input' : 'dark dark-input'
+      "
+    >
+      <new-task />
     </section>
 
-        <section class="container-task example-container " [ngClass]="this.theme.type==='Light' ? 'light': 'dark'">
-            <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
-
-                @for (task of tasks; track task.id){
-                    <div class="example-item" [ngClass]="this.theme.type==='Light' ? 'light': 'dark'" cdkDrag >
-                        <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
-                        <task  [task]="task" (completeTaskEvent)="updateTask($event)" (deleteTaskEvent)="deleteTask($event)"/>
-                    </div>
-                }
-                </div>
-        </section>
-        <div class="task-info " [ngClass]="this.theme.type==='Light' ? 'light light-input': 'dark dark-input'">
-            <div class="tasksLeft">{{this.tasks.length}}</div>
-            <button class="button-clear"  (click)="showTasks('Active')" [ngClass]="this.theme.type==='Light' ? 'light-input': 'dark-input'">
-                Clear Completed
-            </button>
+    <section
+      class="container-task example-container"
+      [ngClass]="this.theme.type === 'Light' ? 'light' : 'dark'"
+    >
+      <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+        @for (task of tasks; track task.id){
+        <div
+          class="example-item"
+          [ngClass]="this.theme.type === 'Light' ? 'light' : 'dark'"
+          cdkDrag
+        >
+          <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+          <task
+            [task]="task"
+            (completeTaskEvent)="updateTask($event)"
+            (deleteTaskEvent)="deleteTask($event)"
+          />
         </div>
-      
-
-
-        <section class=" container-filter" [ngClass]="this.theme.type==='Light' ? 'light': 'dark'">
-           <button (click)="showTasks('All')"   [ngClass]="this.theme.type==='Light' ? 'light button-light': 'dark button-dark'" class="button-all">All</button>
-           <button (click)="showTasks('Active')"  [ngClass]="this.theme.type==='Light' ?  'light button-light': 'dark button-dark'" class="button-active">Active</button>
-           <button (click)="showTasks('Completed')"   [ngClass]="this.theme.type==='Light' ?'light button-light': 'dark button-dark'"class="button-completed">Completed</button>
-        </section>
-
-    <div class="container-footer" (click)="showTasks('Active')"  [ngClass]="this.theme.type==='Light' ?  'light-input': 'dark-input'" >
-        <p> Drag and drop to recorder list</p>
+        }
+      </div>
+    </section>
+    <div
+      class="task-info"
+      [ngClass]="
+        this.theme.type === 'Light' ? 'light light-input' : 'dark dark-input'
+      "
+    >
+      <div class="tasksLeft">{{ this.tasks.length }} items left</div>
+      <button
+        class="button-clear"
+        (click)="showTasks('Active')"
+        [ngClass]="this.theme.type === 'Light' ? 'light-input' : 'dark-input'"
+      >
+        Clear Completed
+      </button>
     </div>
-</section>
+
+    <section
+      class="container-filter"
+      [ngClass]="this.theme.type === 'Light' ? 'light' : 'dark'"
+    >
+      <button
+        (click)="showTasks('All')"
+        [ngClass]="
+          this.theme.type === 'Light'
+            ? 'light button-light'
+            : 'dark button-dark'
+        "
+        class="button-all"
+      >
+        All
+      </button>
+      <button
+        (click)="showTasks('Active')"
+        [ngClass]="
+          this.theme.type === 'Light'
+            ? 'light button-light'
+            : 'dark button-dark'
+        "
+        class="button-active"
+      >
+        Active
+      </button>
+      <button
+        (click)="showTasks('Completed')"
+        [ngClass]="
+          this.theme.type === 'Light'
+            ? 'light button-light'
+            : 'dark button-dark'
+        "
+        class="button-completed"
+      >
+        Completed
+      </button>
+    </section>
+
+    <div
+      class="container-footer"
+      (click)="showTasks('Active')"
+      [ngClass]="this.theme.type === 'Light' ? 'light-input' : 'dark-input'"
+    >
+      <p>Drag and drop to recorder list</p>
+    </div>
+  </section>
+</div>

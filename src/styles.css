@@ -37,18 +37,22 @@ display: flex;
 align-items: center;
 flex-direction: column;
 overflow: hidden;
-color:white;
+
 
 }
 .footer-section{
-padding: 1em 0;
 font-size: 12px;
 text-align: center;
 }
 .container-todo{
 
-/* border:3px solid purple;  */
-padding: 2em;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+  color:white;
+  height: 95vh;
+  width: 100vw;
 
 }
 .container-header{
@@ -63,7 +67,9 @@ letter-spacing: 12px;
 font-size: 22px;
 }
 .container-main{
-border:3px solid white;
+
+  padding: 2em;
+
 }
 
 .icon-theme{
@@ -72,7 +78,7 @@ font-weight: 700;
 
 }
 .container-addTask, .container-taskList, .container-filter{
-border-radius: 4px;
+
 margin: 1.5em 0 ;
 }
 
@@ -190,12 +196,12 @@ color: var(--dark-lightGrayBlue);
 }
 
 .example-list {
-width: 500px;
+
 max-width: 100%;
 min-height: 60px;
 display: block;
-border-radius: 4px;
 overflow: hidden;
+border-radius: 8px;
 }
 
 .example-box {
@@ -262,10 +268,6 @@ background:var(--dark-bg-darkBlue);
 opacity: .2;
 }
 
-#buttonTransitionComplete.transition {
-
-
-}
 
 @keyframes onCompleteAnnimation{
   0%   {
@@ -342,4 +344,32 @@ opacity: .2;
   align-items: center;
   justify-content: center;
   padding: 1em 0 ;
+}
+
+@media only screen and (min-width: 600px) {
+
+
+  .container-todo{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    padding: 2em;
+  
+
+
+}
+.container-main{
+  width: 700px;
+  height: 60vh;
+
+}
+.header-text{
+  font-size: 42px;
+}
+.task-new-container{
+  font-size: 16px;
+}
+.task-new-container input::placeholder{
+  font-size: 16px;
+}
 }
