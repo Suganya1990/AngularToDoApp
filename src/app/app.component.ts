@@ -12,9 +12,9 @@ import { ToDoComponent } from './to-do/to-do.component';
 export class AppComponent {
   title = 'todo-app';
   constructor(){
-    // afterNextRender(()=>{
-    //   this.showWelcomeMessage();
-    // })
+    afterNextRender(()=>{
+      this.showWelcomeMessage();
+    })
    
   }
 
