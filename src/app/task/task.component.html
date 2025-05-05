@@ -1,13 +1,25 @@
 
 <div class="task-item">
+  <button class="button-complete" (click)="onComplete(task!.id)" >
+    @if (task?.isComplete==true){
+      <div class="check">
 
-  <svg class="svg">
-    <circle cx="8" cy="8" r="5" stroke="grey" stroke-width=".5" fill="transparent" />
-  </svg>    
-  
+        <img src="../../images/icon-check.svg" alt="">
+      </div>
+      <!-- <svg class="svg">
+        <circle cx="8" cy="8" r="5" stroke="grey" stroke-width=".5" fill="transparent" />
+      </svg>    -->
+    }
+    @else {
+      <div class="circle">
+       
+      </div>   
+    }
+ 
+    
+  </button>
   <p class="task">{{task?.title}}</p>
-  <!-- <svg class="svg">
-    <circle cx="8" cy="8" r="5" stroke="grey" stroke-width=".5" fill="transparent" />
-  </svg>    
-   -->
+  <button class="button-delete" (click)="onDelete(task!.id)"  >
+    <img src="../../images/icon-cross.svg" alt="">
+  </button>
 </div>

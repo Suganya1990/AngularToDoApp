@@ -46,29 +46,38 @@ export class TasksService {
 
   constructor() { }
 
-  addTask( title:string, task?:TaskModule){
+addTask( title:string, task?:TaskModule){
+  let tempTask: TaskModule = {
+    id: (this.tasks.length + 1).toString(),
+    title: title,
+    date: new Date, 
+    isComplete:false
+    }
     if(title)
-    {
-      let tempTask: TaskModule = {
-      id: (this.tasks.length + 1).toString(),
-      title: title,
-      date: new Date, 
-      isComplete:false
-      }
       this.tasks.push(tempTask)
-  }
-  (task)?this.tasks.push(task): this.tasks
+    if (task)
+      this.tasks.push(task)
 }
-  getTasks():Observable<TaskModule[]>{
+
+getTasks():Observable<TaskModule[]>{
     const tasks = of(this.tasks)
     return tasks
   }
 
-  updateStatus(id:string){
+
+
+updateStatus(id:string){
   this.tasks.map(t=>{
-      t.id ===id ? {...t, isComplete:true}:t
+      if(t.id ===id )
+         {
+          t.isComplete = !t.isComplete
+    }
     })
   }
   
+  deleteTask(id:string){
+    console.log("task Services called")
+    this.tasks.filter(t=>t.id!==id)
+  }
 
 }

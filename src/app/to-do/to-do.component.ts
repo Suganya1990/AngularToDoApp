@@ -41,7 +41,7 @@ export class ToDoComponent {
     
   }
   getTasks(){
-   this.taskService.getTasks().subscribe(task=>this.tasks = task)
+   return this.taskService.getTasks().subscribe(task=>this.tasks = task)
   }
 
   toggleTheme(){
@@ -53,6 +53,16 @@ export class ToDoComponent {
 
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.tasks, event.previousIndex, event.currentIndex);
+  }
+  updateTask(e:any){
+    
+    this.taskService.updateStatus(e)
+    const tasks = this.taskService.getTasks();
+
+  }
+  deleteTask(e:any){
+    console.log("delete task event")
+    this.taskService.deleteTask(e)
   }
 
 }

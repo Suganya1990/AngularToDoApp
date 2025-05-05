@@ -3,7 +3,8 @@
         <h1 class="header-text">TODO</h1>
 
         <i class="icon-theme" (click) = "this.toggleTheme()">	
-            {{this.theme.symbol}}</i>
+            {{this.theme.symbolLink}}
+        </i>
         
         <!-- <span class="icon-theme"></span> -->
     </header>
@@ -17,7 +18,7 @@
                 @for (task of tasks; track task.id){
                     <div class="example-item" [ngClass]="this.theme.type==='Light' ? 'light': 'dark'" cdkDrag >
                         <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
-                        <task  [task]="task" />
+                        <task  [task]="task" (completeTaskEvent)="updateTask($event)" (deleteTaskEvent)="deleteTask($event)"/>
                     </div>
                 }
                 </div>

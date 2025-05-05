@@ -6,10 +6,10 @@ import { Interface } from 'readline';
 
 export const Light={
   type :  "Light",
-  symbol: "\u263E"
+  symbolLink: "\u263E"
 } 
 
 export const  Dark={
   type: "Dark",
-  symbol: "\u263C"
+  symbolLink: "\u263C"
 } 
