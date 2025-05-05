@@ -1,6 +1,6 @@
 
 <div class="task-item">
-  <button class="button-complete" (click)="onComplete(task!.id)" >
+  <button class="button-complete" (click)="onComplete(task!.id)" id="buttonTransitionComplete">
     @if (task?.isComplete==true){
       <div class="check">
 
@@ -19,7 +19,7 @@
     
   </button>
   <p class="task">{{task?.title}}</p>
-  <button class="button-delete" (click)="onDelete(task!.id)"  >
+  <button class="button-delete" (click)="onDelete(task!.id)" id="buttonTransitionDelete"  >
     <img src="../../images/icon-cross.svg" alt="">
   </button>
 </div>

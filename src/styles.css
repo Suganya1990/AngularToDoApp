@@ -120,6 +120,8 @@ height: 20px;
 margin: 8px;
 border:2px solid var(--dark-darkGreyBlue2);
 border-radius: 50%;
+/* animation-name: onCompleteAnnimation ;
+animation-duration: 1s; */
 }
 .check{
   width: 20px;
@@ -259,3 +261,47 @@ height: 5px;
 background:var(--dark-bg-darkBlue);
 opacity: .2;
 }
+
+#buttonTransitionComplete.transition {
+
+
+}
+
+@keyframes onCompleteAnnimation{
+  0%   {
+    width: 20px;
+    height: 20px;
+    margin: 8px;
+    background: linear-gradient( hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+  }
+  50%  {  width: 20px;
+    height: 20px;
+    margin: 8px;
+    background: linear-gradient( hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;}
+  
+  80% {
+   
+    background-image: url('./images/icon-check.svg'),linear-gradient( hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-image 2s 500ms;
+
+  }
+}
+.circle:focus{
+  animation-name: onCompleteAnnimation ;
+  animation-duration: 2s;
+}
+.circle:hover{
+  animation-name: onCompleteAnnimation ;
+  animation-duration: 2s;
+}
+.circle:active{
+  animation-name: onCompleteAnnimation ;
+  animation-duration: 2s;}
