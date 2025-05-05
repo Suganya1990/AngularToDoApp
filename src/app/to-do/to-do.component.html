@@ -33,9 +33,9 @@
 
 
         <section class=" container-filter" [ngClass]="this.theme.type==='Light' ? 'light': 'dark'">
-           <button (click)="showTasks('All')"   [ngClass]="this.theme.type==='Light' ? 'light': 'dark'" class="button-all">All</button>
-           <button (click)="showTasks('Active')"  [ngClass]="this.theme.type==='Light' ? 'light': 'dark'" class="button-active">Active</button>
-           <button (click)="showTasks('Completed')"   [ngClass]="this.theme.type==='Light' ? 'light': 'dark'" class="button-completed">Completed</button>
+           <button (click)="showTasks('All')"   [ngClass]="this.theme.type==='Light' ? 'light button-light': 'dark button-dark'" class="button-all">All</button>
+           <button (click)="showTasks('Active')"  [ngClass]="this.theme.type==='Light' ?  'light button-light': 'dark button-dark'" class="button-active">Active</button>
+           <button (click)="showTasks('Completed')"   [ngClass]="this.theme.type==='Light' ?'light button-light': 'dark button-dark'"class="button-completed">Completed</button>
         </section>
 
     <div>

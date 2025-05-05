@@ -314,6 +314,7 @@ opacity: .2;
   background-color: transparent;
   border: none;
   cursor: pointer;
+  font-weight: 500;
   
  }
 
@@ -321,4 +322,17 @@ opacity: .2;
   padding: 1em;
   display: flex;
   justify-content: space-evenly;
+}
+.button-clear:focus, .button-all:focus, .button-active:focus, .button-completed:focus{
+  color: var(--main-primary-brightBlue);
+}
+.button-light:hover{
+  color: var(--light-blueGray-3);
+}
+
+.button-dark:hover{
+  color: var(--dark-darkGreyBlue3);
+}
+.button-clear:active, .button-all:active, .button-active:active, .button-completed:active{
+  color: var(--main-primary-brightBlue);
 }
