@@ -18,6 +18,20 @@ export class ToDoComponent {
   
   theme!: typeof Light |  typeof Dark
   tasks: TaskModule[] = []
+
+  constructor(private taskService: TasksService){    
+    this.setInitialTheme()
+  }
+
+  ngOnInit(){
+   
+    this.subscribeTasks()
+    
+  }
+
+  subscribeTasks(){
+   return this.taskService.getTasks().subscribe(task=>this.tasks = task)
+  }
   setInitialTheme(){
     let date = new Date();
     let time = date.getHours();
@@ -32,18 +46,6 @@ export class ToDoComponent {
     }
   }
 
-  constructor(private taskService: TasksService){    
-    this.setInitialTheme()
-  }
-
-  ngOnInit(){
-    this.getTasks()
-    
-  }
-  getTasks(){
-   return this.taskService.getTasks().subscribe(task=>this.tasks = task)
-  }
-
   toggleTheme(){
     if(this.theme.type === "Light" )
       this.theme = Dark;
@@ -55,14 +57,15 @@ export class ToDoComponent {
     moveItemInArray(this.tasks, event.previousIndex, event.currentIndex);
   }
   updateTask(e:any){
-    
     this.taskService.updateStatus(e)
-    const tasks = this.taskService.getTasks();
-
+    
   }
   deleteTask(e:any){
-    console.log("delete task event")
     this.taskService.deleteTask(e)
   }
-
+  clearCompletedTasks(){
+  this.tasks =  this.tasks.filter((t)=>
+    t.isComplete ==false
+  )
+  }
 }

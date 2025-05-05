@@ -173,18 +173,18 @@ background-color:var(--dark-bg-darkBlue);
 .light{
 background-color:  white;
 color: var(--light-txt-blueGray-3);
-border-bottom: .02em solid var(--light-blueGray-2);
+border-bottom: .02em solid var(--light-blueGray-1);
 }
 .dark{
 background-color: var(--dark-veryDarkBlue);
 color: var(--dark-lightGrayBlue);
-border-bottom: .02em solid var(--dark-darkGreyBlue3);
+border-bottom: .02em solid var(--dark-darkGreyBlue4);
 }
-.light-input input
+.light-input,  input
 {
 color: var(--light-txt-blueGray-3);
 }
-.dark-input input
+.dark-input, input
 {
 color: var(--dark-lightGrayBlue);
 }
@@ -283,9 +283,7 @@ opacity: .2;
     background: linear-gradient( hsl(192, 100%, 67%), hsl(280, 87%, 65%));
     border-radius: 50%;
     align-items: center;
-    justify-content: center;}
-  
-  80% {
+    justify-content: center;
    
     background-image: url('./images/icon-check.svg'),linear-gradient( hsl(192, 100%, 67%), hsl(280, 87%, 65%));
     background-position: center;
@@ -305,3 +303,16 @@ opacity: .2;
 .circle:active{
   animation-name: onCompleteAnnimation ;
   animation-duration: 2s;}
+
+ .task-info{
+  display: flex;
+  justify-content: space-between;
+  padding: 1em 1.5em;
+ }
+ 
+ .button-clear{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  
+ }

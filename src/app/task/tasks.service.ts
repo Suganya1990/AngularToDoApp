@@ -1,54 +1,30 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Input, OnInit } from '@angular/core';
 import { TaskModule } from './task.module';
 import { Observable, of } from 'rxjs';
+import {TASKDATA } from './tasksItem'
 
 @Injectable({
   providedIn: 'root'
 })
-export class TasksService {
+export class TasksService implements OnInit {
   
-  tasks: TaskModule[] = [
-      {
-        id:"1",
-        title:"Make doctors appointment ",
-        date: new Date(),
-        isComplete:false
-        
-      },
-      {
-        id:"2",
-        title:"Finish Angular Project ",
-        date: new Date(),
-        isComplete:false
-        
-      },
-      {
-        id:"3",
-        title:"Get a job",
-        date: new Date(),
-        isComplete:false
-        
-      },
-      {
-        id:"4",
-        title:"Train for 5K",
-        date: new Date(),
-        isComplete:false
-        
-      },
-      {
-        id:"5",
-        title:"Go swimming",
-        date: new Date(),
-        isComplete:false
-      }
-    ]
+  tasks: TaskModule[] = TASKDATA;
+  idTracker:string = '';
+  @Input() set = "";
 
-  constructor() { }
+  constructor() {
+    
+    this.idTracker = (this.tasks.length + 1).toString()
+
+   }
+   ngOnInit(){
+
+
+   }
 
 addTask( title:string, task?:TaskModule){
   let tempTask: TaskModule = {
-    id: (this.tasks.length + 1).toString(),
+    id: this.idTracker,
     title: title,
     date: new Date, 
     isComplete:false
@@ -57,11 +33,16 @@ addTask( title:string, task?:TaskModule){
       this.tasks.push(tempTask)
     if (task)
       this.tasks.push(task)
+    this.idTracker = (Number(this.idTracker)+1).toString();
 }
 
 getTasks():Observable<TaskModule[]>{
     const tasks = of(this.tasks)
     return tasks
+  }
+  setTasks(tasks:any){
+    this.tasks=tasks
+    
   }
 
 
@@ -76,8 +57,8 @@ updateStatus(id:string){
   }
   
   deleteTask(id:string){
-    console.log("task Services called")
-    this.tasks.filter(t=>t.id!==id)
+    const taskIndex = this.tasks.findIndex((t) => t.id == id);    
+    this.tasks.splice(taskIndex, 1);
   }
 
 }

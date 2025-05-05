@@ -23,7 +23,14 @@
                 }
                 </div>
         </section>
-         
+        <div class="task-info " [ngClass]="this.theme.type==='Light' ? 'light light-input': 'dark dark-input'">
+            <div class="tasksLeft">{{this.tasks.length}}</div>
+            <button class="button-clear"  (click)="clearCompletedTasks()" [ngClass]="this.theme.type==='Light' ? 'light-input': 'dark-input'">
+                Clear Completed
+            </button>
+        </div>
+      
+
 
         <section class=" container-filter" [ngClass]="this.theme.type==='Light' ? 'light': 'dark'">
             Add Filter Section
