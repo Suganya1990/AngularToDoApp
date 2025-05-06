@@ -22,17 +22,17 @@
     </section>
 
     <section
-      class="container-task example-container"
+      class="container-task drag-container"
       [ngClass]="this.theme.type === 'Light' ? 'light' : 'dark'"
     >
-      <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+      <div cdkDropList class="drag-list" (cdkDropListDropped)="drop($event)">
         @for (task of tasks; track task.id){
         <div
-          class="example-item"
+          class="drag-item"
           [ngClass]="this.theme.type === 'Light' ? 'light' : 'dark'"
           cdkDrag
         >
-          <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+          <div class="drag-custom-placeholder" *cdkDragPlaceholder></div>
           <task
             [task]="task"
             (completeTaskEvent)="updateTask($event)"
