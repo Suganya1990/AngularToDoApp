@@ -12,7 +12,6 @@ import { FormsModule } from '@angular/forms';
 
 })
 export class NewTaskComponent {
-  tasks?: TaskModule
   title = ""
 
 
@@ -23,7 +22,7 @@ export class NewTaskComponent {
 
   addTask(e:Event){
     this.taskService.addTask(this.title)
-    this.title = ''
+    this.title = '';
   }
 
   

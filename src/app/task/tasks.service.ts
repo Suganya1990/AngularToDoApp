@@ -10,16 +10,14 @@ export class TasksService implements OnInit {
   
   tasks: TaskModule[] = TASKDATA;
   idTracker:string = '';
-  @Input() set = "";
+ 
 
-  constructor() {
-    
+  constructor() {    
     this.idTracker = (this.tasks.length + 1).toString()
-
-   }
-   ngOnInit(){
+}
 
 
+ngOnInit(){
    }
 
 addTask( title:string, task?:TaskModule){
@@ -40,11 +38,10 @@ getTasks():Observable<TaskModule[]>{
     const tasks = of(this.tasks)
     return tasks
   }
-  setTasks(tasks:any){
-    this.tasks=tasks
-    
-  }
 
+setTasks(tasks:any){
+    this.tasks=tasks    
+  }
 
 
 updateStatus(id:string){

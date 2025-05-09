@@ -13,21 +13,19 @@ export class TaskComponent implements OnInit {
   @Input({required:true}) task?:TaskModule
   @Output() completeTaskEvent: EventEmitter<string> = new EventEmitter<string>();
   @Output() deleteTaskEvent: EventEmitter<string> = new EventEmitter<string>();
+  
   constructor(){
-
   }
+
   ngOnInit(): void {
-
   }
+
   onComplete( e:string){
     this.completeTaskEvent.emit(e)
-  
   }
-  onDelete(e:string){
-    
-    console.log("delete event triggered", e)
-    this.deleteTaskEvent.emit(e)
 
+  onDelete(e:string){
+    this.deleteTaskEvent.emit(e)
   }
 
 }
