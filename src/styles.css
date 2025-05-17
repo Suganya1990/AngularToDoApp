@@ -290,8 +290,13 @@ input {
   opacity: .2;
 }
 
+/* Complete Task */
 
-@keyframes onCompleteAnnimation {
+
+
+/* animation */
+
+@keyframes check {
   0% {
     width: 20px;
     height: 20px;
@@ -319,19 +324,38 @@ input {
   }
 }
 
+
 .circle:focus {
-  animation-name: onCompleteAnnimation;
+  animation-name: check;
   animation-duration: 2s;
 }
 
 .circle:hover {
-  animation-name: onCompleteAnnimation;
+  animation-name: check;
   animation-duration: 2s;
 }
 
 .circle:active {
-  animation-name: onCompleteAnnimation;
+  animation-name: check;
   animation-duration: 2s;
+}
+
+@keyframes strike {
+  from { text-decoration-color: transparent; }
+  to { text-decoration-color: auto; }
+}
+
+@keyframes unStrike {
+  from { text-decoration-color: auto; }
+  to {text-decoration-color: transparent; }
+}
+.strike {  
+  text-decoration: line-through;
+  animation: strike 1s linear;
+}
+.unStrike{
+  text-decoration:none ;
+  animation: unStrike 1s linear;
 }
 
 .task-info {

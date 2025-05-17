@@ -18,7 +18,7 @@
  
     
   </button>
-  <p class="task">{{task?.title}}</p>
+  <p [ngClass]="task?.isComplete==true ? 'strike': 'unStrike'" class="task">{{task?.title}}</p>
   <button class="button-delete" (click)="onDelete(task?.id)" id="buttonTransitionDelete"  >
     <img src="../../images/icon-cross.svg" alt="">
   </button>

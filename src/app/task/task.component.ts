@@ -1,11 +1,12 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TaskModule } from './task.module';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'task',
   standalone: true,
-  imports: [FontAwesomeModule],
+  imports: [FontAwesomeModule,  CommonModule],
   templateUrl: './task.component.html',
 
 })
