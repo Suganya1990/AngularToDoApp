@@ -358,10 +358,11 @@ input {
   animation: unStrike 1s linear;
 }
 
-.task-info {
+.wrapper {
   display: flex;
   justify-content: space-between;
-  padding: 1em 1.5em;
+  align-items: center;
+ 
 }
 
 .button-clear,
@@ -373,6 +374,43 @@ input {
   cursor: pointer;
   font-weight: 500;
 
+}
+
+  .wrapper {
+  display: grid;
+ grid-template-columns: 1fr 1fr;
+ row-gap: 50px;
+  grid-template-rows: 1fr 1fr;
+ grid-template-rows: 40px;
+ grid-template-areas:
+  "left  right"
+  "center center"; 
+  
+}
+.left-grid{
+
+  grid-area: left; 
+   display: flex;
+  justify-content: center;
+  align-items: center;
+  height: inherit;
+
+}
+.center-grid{
+
+  grid-area: center;
+    display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+   height: inherit;
+}
+.right-grid{
+
+ grid-area: right;
+   display: flex;
+  justify-content: center;
+  align-items: center;
+  height: inherit;
 }
 
 .container-filter {
@@ -403,11 +441,12 @@ input {
   color: var(--main-primary-brightBlue);
 }
 
+
 .container-footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1em 0;
+  /* padding: 1em 0; */
 }
 
 @media only screen and (min-width: 600px) {
@@ -440,4 +479,38 @@ input {
   .task-new-container input::placeholder {
     font-size: 16px;
   }
+  .wrapper {
+  display: grid;
+ grid-template-columns: 1fr 1fr 1fr 1fr;
+
+ grid-template-rows: 60px;
+ grid-template-areas:
+  "left center center right"; 
+  
+}
+.left-grid{
+  grid-area: left; 
+   display: flex;
+  justify-content: center;
+  align-items: center;
+  height: inherit;
+
+}
+.center-grid{
+
+  grid-area: center;
+    display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+   height: inherit;
+}
+.right-grid{
+
+ grid-area: right;
+   display: flex;
+  justify-content: center;
+  align-items: center;
+  height: inherit;
+}
+
 }

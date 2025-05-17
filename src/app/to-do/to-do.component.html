@@ -42,13 +42,19 @@
         }
       </div>
     </section>
+ 
+
+    
     <div
-      class="task-info"
+      class="wrapper"
       [ngClass]="
         this.theme.type === 'Light' ? 'light light-input' : 'dark dark-input'
       "
     >
-      <div class="tasksLeft">{{ this.tasks.length }} items left</div>
+      <div class=" left-grid tasksLeft">{{ this.tasks.length }} items left</div>
+      <div class=" right-grid">
+
+     
       <button
         class="button-clear"
         (click)="showTasks('Active')"
@@ -56,10 +62,10 @@
       >
         Clear Completed
       </button>
-    </div>
+     </div>
 
-    <section
-      class="container-filter"
+    <div
+      class="container-filter center-grid"
       [ngClass]="this.theme.type === 'Light' ? 'light' : 'dark'"
     >
       <button
@@ -95,7 +101,8 @@
       >
         Completed
       </button>
-    </section>
+    </div>
+  </div>  
 
     <div
       class="container-footer"
@@ -104,5 +111,6 @@
     >
       <p>Drag and drop to recorder list</p>
     </div>
+    
   </section>
 </div>
